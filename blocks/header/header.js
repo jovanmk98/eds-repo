@@ -1,43 +1,45 @@
 export default function decorate(block) {
-    console.log("herooo")
-  // 1. Find the default content wrapper inside the hero block
-  const wrapper = block.querySelector('.default-content-wrapper');
-  if (!wrapper) return; // Exit if no default content found
+  console.log('Decorating hero block');
 
-  // 2. Create containers for text and image
+  // 1. Create containers for text and image
   const textDiv = document.createElement('div');
   textDiv.classList.add('hero-text');
+
   const imageDiv = document.createElement('div');
   imageDiv.classList.add('hero-image');
 
-  // 3. Sort child elements into text vs. images
-  const children = [...wrapper.children];
-  const pictures = [];  // to collect <picture> elements (images)
+  // 2. Loop through all children of the block
+  const children = [...block.children];
+  const pictures = [];
+
   children.forEach((el) => {
     if (el.tagName.toLowerCase() === 'picture') {
       pictures.push(el);
     } else {
-      textDiv.appendChild(el); // move heading, paragraph, link, etc. into text container
+      textDiv.appendChild(el); // Move headings, text, and CTA link
     }
   });
 
-  // If there's a CTA link inside text, add a class for styling
+  // 3. Add styling class to CTA button
   const ctaLink = textDiv.querySelector('a');
   if (ctaLink) {
     ctaLink.classList.add('hero-cta');
   }
 
-  // 4. Append the first image to the image container, hide others
+  // 4. Append first picture to image block, hide the rest
   if (pictures.length > 0) {
-    imageDiv.appendChild(pictures[0]); // first image stays visible
+    imageDiv.appendChild(pictures[0]);
     for (let i = 1; i < pictures.length; i++) {
-      pictures[i].classList.add('hidden-image'); // mark others as hidden
-      imageDiv.appendChild(pictures[i]);         // keep them in DOM (appended but hidden)
+      pictures[i].classList.add('hidden-image');
+      imageDiv.appendChild(pictures[i]);
     }
   }
 
-  // 5. Remove the old wrapper and append new containers
-  wrapper.remove();                     // remove empty default-content-wrapper
-  block.appendChild(textDiv);
-  block.appendChild(imageDiv);
+  // 5. Clear the block and rebuild with new structure
+  block.textContent = '';
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('hero');
+  wrapper.appendChild(textDiv);
+  wrapper.appendChild(imageDiv);
+  block.appendChild(wrapper);
 }
