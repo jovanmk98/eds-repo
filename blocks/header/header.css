@@ -1,0 +1,53 @@
+/* Hero block base styles */
+.hero {
+  display: flex;
+  flex-direction: row;        /* side-by-side layout */
+  align-items: flex-start;    /* align items to top (change to center if vertical centering is desired) */
+  justify-content: flex-start;/* left align the group, could use space-between if needed */
+  gap: 2rem;                  /* space between text and image columns */
+  padding: 2rem 1rem;         /* overall padding around the hero block (adjust as needed) */
+}
+
+/* Text container (left side) */
+.hero-text {
+  flex: 1 1 50%;              /* allow to grow/shrink, base 50% width */
+  max-width: 600px;           /* (Optional) limit the width of text column for readability */
+}
+
+/* Image container (right side) */
+.hero-image {
+  flex: 1 1 50%;              /* allow to grow/shrink, base 50% width */
+  text-align: center;         /* center the image horizontally inside its container (optional) */
+}
+.hero-image img, .hero-image picture {
+  max-width: 100%;
+  height: auto;               /* make images responsive */
+}
+.hero-image .hidden-image {
+  display: none;              /* hide second+ images, they remain in DOM */
+}
+
+/* CTA link as a button */
+.hero-cta {
+  display: inline-block;      /* make the link behave like a button */
+  margin-top: 1rem;           /* space above the button */
+  padding: 0.75rem 1.5rem;    /* padding inside the button */
+  background-color: #227BFF;  /* example background color (blue) */
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  /* (You can add hover effects or other styles as needed) */
+}
+
+/* Responsive layout: stack on smaller screens */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;   /* stack text above image */
+    align-items: flex-start;  /* left-align items in vertical stack */
+  }
+  .hero-text, .hero-image {
+    flex: 1 1 100%;
+    max-width: 100%;          /* each takes full width in column layout */
+  }
+}
