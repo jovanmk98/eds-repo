@@ -1,5 +1,5 @@
 export default function decorate(block) {
-  console.log('Decorating hero block');
+  console.log('Decorating hero block', block);
 
   // 1. Create containers for text and image
   const textDiv = document.createElement('div');
