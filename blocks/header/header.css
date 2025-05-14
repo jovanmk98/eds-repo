@@ -1,5 +1,5 @@
 /* Hero block base styles */
-.hero {
+#hero {
   display: flex;
   flex-direction: row;        /* side-by-side layout */
   align-items: flex-start;    /* align items to top (change to center if vertical centering is desired) */
