@@ -1,4 +1,5 @@
 export default function decorate(block) {
+    console.log("herooo")
   // 1. Find the default content wrapper inside the hero block
   const wrapper = block.querySelector('.default-content-wrapper');
   if (!wrapper) return; // Exit if no default content found
