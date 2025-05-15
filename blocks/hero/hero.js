@@ -1,6 +1,7 @@
 export default function decorate(block) {
   const elements = block.querySelectorAll(':scope > div');
   const [title, subtitle, description, cta, image] = elements;
+  console.log('elements loaded: ', elements);
 
   const backgroundWrapper = document.createElement('div');
   backgroundWrapper.className = 'hero-background';
