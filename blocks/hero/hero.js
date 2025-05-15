@@ -1,24 +1,27 @@
 export default function decorate(block) {
   const elements = block.querySelectorAll(':scope > div');
   const [title, subtitle, description, cta, image] = elements;
-console.log('elements', elements);
-  const layout = document.createElement('div');
-  layout.className = 'hero-inner';
 
-  const text = document.createElement('div');
-  text.className = 'hero-text';
+  const backgroundWrapper = document.createElement('div');
+  backgroundWrapper.className = 'hero-background';
 
-  if (title) text.append(...title.childNodes);
-  if (subtitle) subtitle.classList.add('subtitle'); text.append(...subtitle.childNodes);
-  if (description) text.append(...description.childNodes);
-  if (cta) text.append(...cta.childNodes);
+  const content = document.createElement('div');
+  content.className = 'hero-content';
 
-  const visual = document.createElement('div');
-  visual.className = 'hero-image';
-  if (image) visual.append(...image.childNodes);
+  if (title) content.append(...title.childNodes);
+  if (subtitle) subtitle.classList.add('subtitle'); content.append(...subtitle.childNodes);
+  if (description) content.append(...description.childNodes);
+  if (cta) content.append(...cta.childNodes);
 
-  layout.append(text, visual);
-
+  backgroundWrapper.append(content);
   block.textContent = '';
-  block.append(layout);
+  block.append(backgroundWrapper);
+
+  if (image) {
+    const picture = image.querySelector('picture');
+    if (picture) {
+      picture.classList.add('hero-bg-image');
+      block.append(picture);
+    }
+  }
 }
