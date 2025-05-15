@@ -1,5 +1,5 @@
 export default function decorate(block) {
-  console.log("BLOCK", blocks);
+  console.log("BLOCK", block);
   const elements = block.querySelectorAll(':scope > div');
 
   const [title, subtitle, description, cta, image] = elements;
