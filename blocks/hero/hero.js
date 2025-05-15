@@ -5,7 +5,8 @@ export default function decorate(block) {
   const [title, subtitle, description, cta, image] = elements;
 
   const heroWrapper = document.createElement('div');
-  heroWrapper.className = 'hero-wrapper';
+heroWrapper.className = 'hero-inner';
+
 
   const textContainer = document.createElement('div');
   textContainer.className = 'hero-text';
