@@ -1,9 +1,9 @@
 export default function decorate(block) {
   const elements = block.querySelectorAll(':scope > div');
   const [title, subtitle, description, cta, image] = elements;
-
+console.log('elements', elements);
   const layout = document.createElement('div');
-  layout.className = 'hero-innerjovan';
+  layout.className = 'hero-inner';
 
   const text = document.createElement('div');
   text.className = 'hero-text';
