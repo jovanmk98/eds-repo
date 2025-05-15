@@ -1,6 +1,5 @@
-/* hero.css */
 .hero.block {
-  padding: 3rem 1rem;
+  padding: 4rem 2rem;
   background-color: #f9f9f9;
 }
 
@@ -9,9 +8,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  gap: 3rem;
   flex-wrap: wrap;
 }
 
@@ -20,26 +19,17 @@
   max-width: 600px;
 }
 
-.hero-text div {
-  margin-bottom: 1.5rem;
+.hero-text .subtitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .hero-text p {
-  font-size: 1rem;
-  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
   color: #333;
-}
-
-.hero-text div:first-child p {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #111;
-}
-
-.hero-text div:nth-child(2) p {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #111;
+  line-height: 1.6;
 }
 
 .hero-text a {
@@ -50,7 +40,7 @@
   text-decoration: none;
   border-radius: 999px;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   transition: background-color 0.3s ease;
 }
 
@@ -62,6 +52,7 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .hero-image img {

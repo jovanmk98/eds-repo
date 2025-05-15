@@ -1,28 +1,24 @@
 export default function decorate(block) {
-  console.log("BLOCK", block);
   const elements = block.querySelectorAll(':scope > div');
-
   const [title, subtitle, description, cta, image] = elements;
 
-  const heroWrapper = document.createElement('div');
-heroWrapper.className = 'hero-inner';
+  const layout = document.createElement('div');
+  layout.className = 'hero-inner';
 
-  console.log("TITLE", title);
-    console.log("elements", elements);
-  const textContainer = document.createElement('div');
-  textContainer.className = 'hero-text';
+  const text = document.createElement('div');
+  text.className = 'hero-text';
 
-  if (title) textContainer.append(title);
-  if (subtitle) textContainer.append(subtitle);
-  if (description) textContainer.append(description);
-  if (cta) textContainer.append(cta);
+  if (title) text.append(...title.childNodes);
+  if (subtitle) subtitle.classList.add('subtitle'); text.append(...subtitle.childNodes);
+  if (description) text.append(...description.childNodes);
+  if (cta) text.append(...cta.childNodes);
 
-  const imageContainer = document.createElement('div');
-  imageContainer.className = 'hero-image';
-  if (image) imageContainer.append(image);
+  const visual = document.createElement('div');
+  visual.className = 'hero-image';
+  if (image) visual.append(...image.childNodes);
 
-  heroWrapper.append(textContainer, imageContainer);
+  layout.append(text, visual);
 
   block.textContent = '';
-  block.append(heroWrapper);
-} 
+  block.append(layout);
+}
