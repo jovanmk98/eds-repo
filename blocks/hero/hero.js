@@ -3,7 +3,7 @@ export default function decorate(block) {
   const [title, subtitle, description, cta, image] = elements;
 
   const layout = document.createElement('div');
-  layout.className = 'hero-inner';
+  layout.className = 'hero-innerjovan';
 
   const text = document.createElement('div');
   text.className = 'hero-text';
