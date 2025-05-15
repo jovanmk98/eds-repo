@@ -59,3 +59,38 @@
 .hero-content a:hover {
   background-color: #000fcc;
 }
+@media (max-width: 768px) {
+  .hero.block {
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100vh; 
+    text-align: center;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: 90%;
+    color: white;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  }
+
+  .hero-content .subtitle {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    color: #f0f0f0;
+    margin: 1rem 0;
+  }
+
+  .hero-bg-image {
+    object-position: center top;
+  }
+
+  .hero-content a {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
